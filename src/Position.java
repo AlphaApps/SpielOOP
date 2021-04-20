@@ -1,13 +1,12 @@
 
 public class Position {
-
 	/**
 	 * erstellt ein Koordinaten Array
 	 */
 	private Mine koord_array[];
 	java.util.Random zufall = new java.util.Random();
 	
-	Position (int anzahlelemente, int hoehe, int breite)
+	Position (int anzahlelemente, int hoehe, int breite) //hier werden zufaellige Koordinaten generiert
 	{
 		koord_array = new Mine[anzahlelemente];
 		for (int i = 0; i < anzahlelemente; i++) 
@@ -34,21 +33,25 @@ public class Position {
 	    return koord_array[idx];
 	}
 	
-	public char suche(Koordinaten koord) {
+	public char suche(Koordinaten koord) 
+	{
 		char rueckgabe = '0' ;
 		int anzahl = 0;
 		
-		for (int i = 0; i < koord_array.length; i++) {
+		for (int i = 0; i < koord_array.length; i++) 
+		{
 				
-			if ( koord_array[i].getX() == koord.getX() &&  koord_array[i].getY() == koord.getY())
+			if ( koord_array[i].getX() == koord.getX() &&  koord_array[i].getY() == koord.getY()) //ueberprueft ob sich die Mine auf der gegenwaertigen Koordinaate befindet
 			{
 				rueckgabe = Anzeige.TREFFER;
 				return rueckgabe;
 			}
-			boolean abc = koord_array[i].istNachbar(koord);
-			if(abc)
+			
+			boolean nachbarcheck = koord_array[i].istNachbar(koord);
+			
+			if(nachbarcheck == true)
 			{
-				anzahl++;
+			 anzahl++;
 			}
 		}
 		
@@ -56,3 +59,4 @@ public class Position {
 		return rueckgabe;
 		}
 }
+
