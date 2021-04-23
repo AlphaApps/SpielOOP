@@ -10,13 +10,13 @@ public class TestKlassen {
 //		final int Y = 7;
 		
 			 
-		MineFrame MineFrame = new MineFrame();
-		MinePanel MinePanel = new MinePanel();
-		MinePanel.setLayout(new GridLayout(12, 16));
-		MineFrame.add(MinePanel);
-		MineFrame.setVisible(true);
-		
-		MineFrame.setSize(400, 600);
+		new MineFrame();
+//		MinePanel MinePanel = new MinePanel();
+//		MinePanel.setLayout(new GridLayout(12, 16));
+//		MineFrame.add(MinePanel);
+//		MineFrame.setVisible(true);
+//		
+//		MineFrame.setSize(400, 600);
 		 
 //		Koordinaten a1 = new Koordinaten(1,3);
 //		Koordinaten b1 = new Koordinaten(1,3);

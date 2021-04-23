@@ -19,18 +19,18 @@ public class Anzeige {
 		
 	}
 	
-//		Wird noch nicht verwendet
-//	public void set(int x, int y, char symbol) 
-//	{
-//		this.spielfeld[x][y] = symbol;
-//
+
+	public void set(int x, int y, char symbol) 
+	{
+		this.spielfeld[x][y] = symbol;
+
+		
+	}
 //		
-//	}
-//		
-//	public char get(int x, int y) 
-//	{
-//		return this.spielfeld[x][y];
-//	}
+	public String get(int x, int y) 
+	{
+		return this.spielfeld[x][y]+"";
+	}
 
 		
 	public int leerefelder()
