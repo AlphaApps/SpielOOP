@@ -41,13 +41,13 @@ public class Koordinaten {
 		 *   Ueberprueft ob die Koordinate über,unter, neben oder diagonal von sich einen Nachbarn hat
 		 */
 		
-		if ((ob1.y == this.y) &&  ((ob1.x == (this.x + 1)) || (ob1.x == (this.x - 1))))
+		if ((ob1.y == this.y) &&  ((ob1.x == (this.x + 1)) || (ob1.x == (this.x - 1)))) //Ueberprueft beim selben y ob rechts oder links eine Mine liegt
 			temp = true;
-		else if((ob1.x == this.x) &&  ((ob1.y == (this.y + 1)) || (ob1.y == (this.y - 1))))
+		else if((ob1.x == this.x) &&  ((ob1.y == (this.y + 1)) || (ob1.y == (this.y - 1)))) //Ueberprueft ob beim selben x oben oder unten eine Mine liegt
 			temp = true;
-		else if(((ob1.x == (this.x + 1)) && (ob1.y == (this.y + 1))) ||  ((ob1.x == (this.x - 1)) && (ob1.y == (this.y - 1))))
+		else if(((ob1.x == (this.x + 1)) && (ob1.y == (this.y + 1))) ||  ((ob1.x == (this.x - 1)) && (ob1.y == (this.y - 1)))) //Diagonale links unten, rechts oben
 			temp = true;
-		else if(((ob1.x == (this.x + 1)) && (ob1.y == (this.y - 1))) ||  ((ob1.x == (this.x - 1)) && (ob1.y == (this.y + 1))))
+		else if(((ob1.x == (this.x + 1)) && (ob1.y == (this.y - 1))) ||  ((ob1.x == (this.x - 1)) && (ob1.y == (this.y + 1)))) //Diagonale links oben, rechts unten
 			temp = true;
 		return temp;
 	}

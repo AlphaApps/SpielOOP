@@ -9,24 +9,45 @@ public class Anzeige {
 	{
 		this.spielfeld = new char [X][Y];
 		
-		for (int i= 0; i < X; i++) {
-			for(int j = 0; j < Y; j++) {
+		for (int i= 0; i < X; i++) 
+		{
+			for(int j = 0; j < Y; j++) 
+			{
 				spielfeld[i][j] = LEER;
 			}
 		}
 		
 	}
 	
-	
-	public void set(int x, int y, char symbol) {
+
+	public void set(int x, int y, char symbol) 
+	{
 		this.spielfeld[x][y] = symbol;
 
 		
 	}
-		
-	public char get(int x, int y) {
-		return this.spielfeld[x][y];
+//		
+	public String get(int x, int y) 
+	{
+		return this.spielfeld[x][y]+"";
 	}
 
 		
+	public int leerefelder()
+	{
+		int zaehler = 0;
+
+	for (int i= 0; i < spielfeld.length; i++) //laeuft vertikal
+	{
+		for(int j = 0; j < spielfeld[0].length; j++) //laeuft horizontal
+		{
+			if (spielfeld[i][j] == LEER)
+			{
+			zaehler ++;	
+			
+		    }  
+        }
+	}
+	return zaehler;
+	}
 }
