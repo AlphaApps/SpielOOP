@@ -8,8 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,13 +27,11 @@ public class MinePanel extends JPanel implements MouseListener
 	GridLayout gbLayout = new GridLayout(Y, X);
 	GridBagConstraints gbCon = new GridBagConstraints();
 	
-	public MinePanel()
+	public MinePanel(JButton newSpiel)
 	{
 		this.addMouseListener(this);
 		
 		setLayout(gbLayout);
-		gbCon.gridy = 0;
-		gbCon.gridx = 0;
 		
 		for (int i = 0; i < X; i++)
 		{
@@ -43,24 +39,27 @@ public class MinePanel extends JPanel implements MouseListener
 				{
 					spiel.set(i,j);
 					temp = spiel.get(i, j)+"";
-					JButton b = new JButton(MinesweeperSpiel.UNGEKLICKT+"");
-//					JButton b = new JButton(temp);
-					b.setPreferredSize(dimension);
+					JButton button = new JButton(MinesweeperSpiel.UNGEKLICKT+"");
+//					JButton button = new JButton(temp);
+					button.setPreferredSize(dimension);
 					
-					b.addActionListener(new ActionListener() {
+					button.addActionListener(new ActionListener() {
 						
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							// TODO Auto-generated method stub
-							b.setText(temp);
+							button.setText(temp);
+							System.out.println(gbCon.gridheight + "" + gbCon.gridwidth);
+
 						}
 					});
-					this.add(b, gbCon);
+					this.add(button, gbCon);
 					gbCon.gridx++;
 				}
 				gbCon.gridx = 0;
 				gbCon.gridy++;
 		}
+		
+
 		
 	}
 
