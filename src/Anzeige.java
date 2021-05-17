@@ -27,9 +27,9 @@ public class Anzeige {
 		
 	}
 //		
-	public String get(int x, int y) 
+	public char get(int x, int y) 
 	{
-		return this.spielfeld[x][y]+"";
+		return this.spielfeld[x][y];
 	}
 
 		
@@ -37,17 +37,16 @@ public class Anzeige {
 	{
 		int zaehler = 0;
 
-	for (int i= 0; i < spielfeld.length; i++) //laeuft vertikal
-	{
-		for(int j = 0; j < spielfeld[0].length; j++) //laeuft horizontal
+		for (int i= 0; i < spielfeld.length; i++) //laeuft vertikal
 		{
-			if (spielfeld[i][j] == LEER)
+			for(int j = 0; j < spielfeld[0].length; j++) //laeuft horizontal
 			{
-			zaehler ++;	
-			
-		    }  
-        }
-	}
-	return zaehler;
+				if (spielfeld[i][j] == LEER)
+				{
+					zaehler ++;	
+			    }  
+	        }
+		}
+		return zaehler;
 	}
 }
