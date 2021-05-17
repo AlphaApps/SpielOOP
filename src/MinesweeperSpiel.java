@@ -35,23 +35,23 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 		return resultat;
 	}
 	@Override
-	public boolean gewonnen() {
-		// TODO Auto-generated method stub
+	public boolean gewonnen() 
+	{
 		return false;
 	}
 	@Override
-	public boolean verloren() {
-		// TODO Auto-generated method stub
+	public boolean verloren() 
+	{
 		return false;
 	}
 	@Override
-	public int getZeilenZahl() {
-		// TODO Auto-generated method stub
+	public int getZeilenZahl() 
+	{
 		return Y;
 	}
 	@Override
-	public int getSpaltenZahl() {
-		// TODO Auto-generated method stub
+	public int getSpaltenZahl() 
+	{
 		return X;
 	}
 	
