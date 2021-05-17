@@ -13,6 +13,7 @@ public class MineFrame extends JFrame implements ActionListener{
 	{
 		BorderLayout fLayout = new BorderLayout();
 		this.setLayout(fLayout);
+		
 		JButton newSpiel = new JButton("Neues Spiel");
 		this.add(BorderLayout.SOUTH, newSpiel );
 		newSpiel.addActionListener(this) ;
@@ -21,16 +22,15 @@ public class MineFrame extends JFrame implements ActionListener{
 		mPanel= new MinePanel(newSpiel);
 		this.add(BorderLayout.CENTER, mPanel);
 		
-		this.setSize(377,520);
+		this.setSize(400,595);
+		// this.setSize(377,520);
 		this.setLocationRelativeTo(null);
-		pack();
+		// pack();
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
 	}
 	
-
-
-
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
