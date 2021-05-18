@@ -17,18 +17,16 @@ public class MineFrame extends JFrame implements ActionListener{
 		JButton newSpiel = new JButton("Neues Spiel");
 		this.add(BorderLayout.SOUTH, newSpiel );
 		newSpiel.addActionListener(this) ;
-
 		
 		mPanel= new MinePanel();
 		this.add(BorderLayout.CENTER, mPanel);
 		
 		this.setSize(415,595);
-//		 this.setSize(377,520);
 		this.setLocationRelativeTo(null);
-		// pack();
+		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		this.setResizable(false);
+
 	}
 	
 

@@ -43,13 +43,12 @@ public class Position {
 		for (int i = 0; i < koord_array.length; i++) 
 		{
 				
-//			if ( koord_array[i].getX() == koord.getX() &&  koord_array[i].getY() == koord.getY()) //ueberprueft ob sich die Mine auf der gegenwaertigen Koordinaate befindet
-//			{
-//				rueckgabe = Anzeige.TREFFER;
-//				return rueckgabe;
-//			}
-			
-			rueckgabe = MineTreffen(koord_array[i],  koord);
+			if ( koord_array[i].getX() == koord.getX() &&  koord_array[i].getY() == koord.getY()) //ueberprueft ob sich die Mine auf der gegenwaertigen Koordinaate befindet
+			{
+				rueckgabe = Anzeige.TREFFER;
+				return rueckgabe;
+			}
+						
 			boolean nachbarcheck = koord_array[i].istNachbar(koord);
 			
 			if(nachbarcheck == true)
@@ -60,17 +59,7 @@ public class Position {
 		}
 		
 		return rueckgabe;
-		}
-	
-	public char MineTreffen(Mine koord_array,  Koordinaten koord)
-	{
-		char treff = ' ';
-		if ( koord_array.getX() == koord.getX() &&  koord_array.getY() == koord.getY()) //ueberprueft ob sich die Mine auf der gegenwaertigen Koordinaate befindet
-		{
-			treff = Anzeige.TREFFER;
-			return treff ;
-		}
-		return treff;
 	}
+
 }
 
