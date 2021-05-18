@@ -1,7 +1,6 @@
 
-public interface KlickBrettSpiel {
-	
-
+public interface KlickBrettSpiel 
+{
 		final char UNGEKLICKT = '.';
 		void set(int x, int y);
 		void markiere(int x, int y);
@@ -10,5 +9,4 @@ public interface KlickBrettSpiel {
 		boolean verloren();
 		int getZeilenZahl();
 		int getSpaltenZahl();
-		
 }

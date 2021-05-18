@@ -12,7 +12,10 @@ public class Koordinaten {
 		this.y = b;	// liefert 0 - 6
 	}
 
-//	Getter-Methoden hier werden benötigt um auf Attribute außerhalb der Klasse Koordinaten pruefen zu koennen
+	/**
+	 * 	Getter-Methoden hier werden benoetigt um auf Attribute ausserhalb der Klasse Koordinaten pruefen zu koennen
+	 * @return
+	 */
 	public int getX() {
 		return x;
 	}
@@ -23,7 +26,7 @@ public class Koordinaten {
 	}
 
 	
-	public boolean equals(Koordinaten obj)
+	public boolean istGleich(Koordinaten obj)
 	{
 		return this.x == obj.x && this.y== obj.y;
 	}
@@ -33,7 +36,7 @@ public class Koordinaten {
 		return ("x : " + this.x + ",  y : " + this.y);
 	}
 	
-	public boolean istNachbar (Koordinaten ob1) 
+	public boolean istNachbar (Koordinaten ob1) //wird in Position verwendet (l.52)
 	{
 		boolean temp = false;
 		
