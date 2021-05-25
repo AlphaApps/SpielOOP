@@ -2,8 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MinePanel extends JPanel implements MouseListener
@@ -11,7 +9,7 @@ public class MinePanel extends JPanel implements MouseListener
 	private int mx = -10;
 	private int my = -10;
 
-	private int vspacing = 50;
+	private int vspacing = 30;
 
 	private KlickBrettSpiel spiel = new MinesweeperSpiel();
 	private int X = spiel.getSpaltenZahl();
@@ -21,16 +19,17 @@ public class MinePanel extends JPanel implements MouseListener
 	private boolean gewinn;
 	private boolean verlorn;
 	private char temp; 
-	// MineTimer mTimer;
-	JLabel label;
+	
+	MineTimer mTimer;	
+	
 	public MinePanel()
 	{
 
 		this.addMouseListener(this);
-		// mTimer = MineTimer.getInstance();
-		// this.add(mTimer);
-		label = new JLabel("Time :");
-		this.add(label);
+		
+		mTimer = MineTimer.getInstance();
+		this.add(mTimer);
+		
 		this.gewinn = false;
 		this.verlorn = false;
 		
@@ -49,7 +48,6 @@ public class MinePanel extends JPanel implements MouseListener
 	public void paint(Graphics gr) 
 	{
 		super.paint(gr);
-		label.setText("Time :");
 		if(this.gewinn)
 		{
 			gr.setColor(Color.green);
@@ -137,5 +135,6 @@ public class MinePanel extends JPanel implements MouseListener
 	{
 		repaint();
 	}
+
 	
 }
