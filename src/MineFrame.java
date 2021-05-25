@@ -7,20 +7,12 @@ import javax.swing.JFrame;
 public class MineFrame extends JFrame implements ActionListener{
     
 	MinePanel mPanel;
-	// MineTimer mTimer;
-	
-	
 	JButton newSpiel = new JButton("Neues Spiel");
 	BorderLayout fLayout = new BorderLayout();
 	
 	public MineFrame()
 	{
 		this.setLayout(fLayout);
-
-		// mTimer = MineTimer.getInstance();
-		
-		// this.add(BorderLayout.NORTH, this.timePanel);
-		
 		this.mPanel= new MinePanel();
 		this.add(BorderLayout.CENTER, this.mPanel);
 
@@ -39,12 +31,9 @@ public class MineFrame extends JFrame implements ActionListener{
 		
 		if(arg0.getSource() == newSpiel)
 		{
-			// mTimer.stop();
-			MineTimer.abc = null;
 			this.dispose();
 			new MineFrame();
 		}
-		// mTimer.setText("Time :"+  mTimer.counter);
 
 	}
 	
