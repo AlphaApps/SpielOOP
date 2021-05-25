@@ -10,6 +10,7 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 	boolean[][] offenesminefeld;
 	
 	private char resultat;
+	private char tester;
 
 	private char symbol;
 	private int count;
@@ -82,6 +83,31 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 		return false;
 	}
 	
+	public void Nullautomat(int x, int y) 
+	{
+		int a = x - 1;
+		int b = y - 1; 
+
+		tester = anzeige.getSpielfeld(x, y);
+		if (tester == Anzeige.LEER) 
+		{
+			for (int i = a; i < (a + 3); i++) 
+			{
+				for (int j = b; j < (b + 3); j++) 
+				{
+					if ((-1 < i && i < X) && ((-1 < j && j < Y)))
+					{
+						tester = anzeige.getSpielfeld(i, j);
+						if (tester == Anzeige.LEER)
+						{
+							setOffenesMinefeld( i, j, true);
+						}
+					}
+				}
+			}
+		}
+	}
+
 	@Override
 	public int getZeilenZahl() 
 	{
@@ -96,7 +122,7 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 	
 	public char getMarkieren(int x, int y)
 	{
-		return this.markierenfeld[x][y];		
+		return this.markierenfeld[x][y];
 	}
 	
 	public void setMarkieren(int x, int y , char val)
@@ -106,12 +132,22 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 	
 	public boolean getOffenesMinefeld(int x, int y)
 	{
-		return this.offenesminefeld[x][y];		
+		
+		return this.offenesminefeld[x][y];
 	}
 
 	public void setOffenesMinefeld(int x, int y, boolean val)
 	{
 		this.offenesminefeld[x][y] = val;
+		
+		// if( getOffenesMinefeld(x, y) != true )
+		// {
+		// 	this.offenesminefeld[x][y] = val;			
+		// }
+		// else
+		// {
+		// 	Nullautomat(x, y);
+		// }
 	}
 
 }

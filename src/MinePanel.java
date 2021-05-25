@@ -2,12 +2,16 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MinePanel extends JPanel implements MouseListener
 {
 	private int mx = -10;
 	private int my = -10;
+
+	private int vspacing = 50;
 
 	private KlickBrettSpiel spiel = new MinesweeperSpiel();
 	private int X = spiel.getSpaltenZahl();
@@ -17,11 +21,16 @@ public class MinePanel extends JPanel implements MouseListener
 	private boolean gewinn;
 	private boolean verlorn;
 	private char temp; 
-	
+	// MineTimer mTimer;
+	JLabel label;
 	public MinePanel()
 	{
+
 		this.addMouseListener(this);
-		
+		// mTimer = MineTimer.getInstance();
+		// this.add(mTimer);
+		label = new JLabel("Time :");
+		this.add(label);
 		this.gewinn = false;
 		this.verlorn = false;
 		
@@ -40,6 +49,7 @@ public class MinePanel extends JPanel implements MouseListener
 	public void paint(Graphics gr) 
 	{
 		super.paint(gr);
+		label.setText("Time :");
 		if(this.gewinn)
 		{
 			gr.setColor(Color.green);
@@ -50,32 +60,32 @@ public class MinePanel extends JPanel implements MouseListener
 		else if(this.verlorn)
 		{
 			gr.setColor(Color.red);
-			gr.fillRect(0, 0, getWidth(), getHeight());
+			gr.fillRect(0, 0, this.getWidth(), this.getHeight());
 			gr.setColor(Color.black);			
 			gr.drawString("You have Lost", getWidth()/2-50 , getHeight()/2);			
 		}
 		else
 		{
-			h = getHeight()/Y;		
+			h = (this.getHeight() - vspacing) /Y ;
 			for (int i = 0; i < X; i++)
 			{
 				for (int j = 0; j < Y; j++)
 				{
-					gr.drawRect(h * i, h * j, h, h);
+					gr.drawRect(h * i, h * j + vspacing, h, h);
 					if( ((MinesweeperSpiel) spiel).getOffenesMinefeld(i,j) == true)
 					{
 						gr.setColor(Color.lightGray);
-						gr.fillRect((h * i)+1, (h * j)+1, h-1, h-1);
+						gr.fillRect((h * i)+1, (h * j)+1 + vspacing, h-1, h-1);
 						gr.setColor(Color.black);
 						temp =  spiel.get(i, j);
-						gr.drawString(temp+" ", h * i + (h/2) , h * j + (h/2));	
+						gr.drawString(temp+" ", h * i + (h/2) , h * j + (h/2) + vspacing);
 					}
 					else if( ((MinesweeperSpiel) spiel).getMarkieren(i, j) == '/')
 					{
 						gr.setColor(Color.cyan);
-						gr.fillRect((h * i)+1, (h * j)+1, h-1, h-1);
+						gr.fillRect((h * i)+1, (h * j)+1 + vspacing, h-1, h-1);
 						gr.setColor(Color.black);
-						gr.drawString("/", h * i + (h/2) , h * j + (h/2));
+						gr.drawString("/", h * i + (h/2) , h * j + (h/2) + vspacing);
 					}
 				}
 			}
@@ -86,13 +96,14 @@ public class MinePanel extends JPanel implements MouseListener
 	public void mouseClicked(MouseEvent evt) 
 	{	
 		mx = (int) Math.ceil(evt.getX()/h);
-		my = (int) Math.ceil(evt.getY()/h);
+		my = (int) Math.ceil((evt.getY() - vspacing)/h);
 		if(evt.getButton() == 1)
 		{			
 			((MinesweeperSpiel) spiel).setOffenesMinefeld(mx, my, true);
+			((MinesweeperSpiel) spiel).Nullautomat(mx, my);
 			this.gewinn = spiel.gewonnen();
 			this.verlorn = spiel.verloren();
-			System.out.println("x : " + mx + ", y : " + my);
+			System.out.println("x : " + (mx + 1) + ", y : " + (my + 1));
 		}
 		else if(evt.getButton() == 3)
 		{
