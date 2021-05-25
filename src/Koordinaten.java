@@ -41,7 +41,7 @@ public class Koordinaten {
 		boolean temp = false;
 		
 		/**
-		 *   Ueberprueft ob die Koordinate über,unter, neben oder diagonal von sich einen Nachbarn hat
+		 *   Ueberprueft ob die Koordinate ueber,unter, neben oder diagonal von sich einen Nachbarn hat
 		 */
 		
 		if ((ob1.y == this.y) &&  ((ob1.x == (this.x + 1)) || (ob1.x == (this.x - 1)))) //Ueberprueft beim selben y ob rechts oder links eine Mine liegt
