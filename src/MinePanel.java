@@ -134,7 +134,5 @@ public class MinePanel extends JPanel implements MouseListener
 	public void mouseReleased(MouseEvent arg0) 
 	{
 		repaint();
-	}
-
-	
+	}	
 }
