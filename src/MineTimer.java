@@ -6,10 +6,10 @@ import javax.swing.Timer;
 
 public class MineTimer extends JLabel implements ActionListener{
 	
-	Timer timer ;
-	static MineTimer abc = null;
+	private Timer timer ;
+	private static MineTimer singletonObj = null;
 	
-	int counter;
+	private int counter;
 
 	private MineTimer()
 	{
@@ -20,33 +20,39 @@ public class MineTimer extends JLabel implements ActionListener{
 	}
 
 	public static MineTimer getInstance()
-	{
-		if(abc == null)
+	{		
+		if(singletonObj == null)
 		{
-			abc = new MineTimer();			
+			singletonObj = new MineTimer();
 		}
-		return abc;
+		else
+		{
+			singletonObj.restart();
+		}
+		return singletonObj;
 	}
 
-	public void start()
+	private void restart()
 	{
+		this.timer.stop();
+		this.start();
+		updateTime();
+	}
+
+	private void start()
+	{
+		this.counter = 0;
 		this.timer.start();
 	}
 
-	public void stop()
+	private void updateTime()
 	{
-		this.timer.stop();
-		this.counter = 0;
+		this.setText("Zeit : " + this.counter);
+		this.counter++;	
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		this.setText("Zeit : " + this.counter);
-
-		this.counter++;
-		System.out.println("Time : " + this.counter);
-	
+		updateTime();
 	}
-
 }
