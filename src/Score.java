@@ -1,27 +1,20 @@
 public class Score {
     
-    String playername;
-    int second;
+    String Spielername;
+    int sekunden;
     
-    Score (String name, int second)
+    Score (String spielername, int sekunden)
     {
-        this.playername = name;
-        this.second = second;
+        this.Spielername = spielername;
+        this.sekunden = sekunden;
     }
 
-    public String getPlayername() {
-        return playername;
+    public String getSpielername() {
+        return Spielername;
     }
 
-    public int getSecond() {
-        return second;
+    public int getSekunden() {
+        return sekunden;
     }
 
-    // public void setPlayername(String playername) {
-    //     this.playername = playername;
-    // }
-
-    // public void setSecond(int second) {
-    //     this.second = second;
-    // }
 }
