@@ -30,9 +30,9 @@ public class MineFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {		
 		
 		if(arg0.getSource() == newSpiel)
-		{
+		{			
 			this.dispose();
-			new MineFrame();
+			new MineFrame();			
 		}
 
 	}
