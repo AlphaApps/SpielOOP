@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class MinesweeperSpiel implements KlickBrettSpiel
 {
@@ -14,6 +15,11 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 
 	private char symbol;
 	private int count;
+	
+	Highscore obj;
+	String name;
+	MineTimer mTimer;
+	
 	
 	private Position minen = new Position(MINEN, X, Y);
 	private Anzeige anzeige = new Anzeige(X, Y);
@@ -61,7 +67,7 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 		}
 		if(this.count == ((X * Y) - MINEN))
 		{
-			return true;
+			topScoreBoard();
 		}
 		return false;
 	}
@@ -139,15 +145,19 @@ public class MinesweeperSpiel implements KlickBrettSpiel
 	public void setOffenesMinefeld(int x, int y, boolean val)
 	{
 		this.offenesminefeld[x][y] = val;
-		
-		// if( getOffenesMinefeld(x, y) != true )
-		// {
-		// 	this.offenesminefeld[x][y] = val;			
-		// }
-		// else
-		// {
-		// 	Nullautomat(x, y);
-		// }
+	}
+	
+	private void topScoreBoard ()
+	{
+		obj = Highscore.getInstance();
+		name = JOptionPane.showInputDialog("Name");	
+		mTimer = MineTimer.getInstance();
+		 if (name!=null) 
+		 {	        
+			obj.add(new Score(name, mTimer.getTime()));
+		 }
+		HighDialog as= new HighDialog(); 
+		as.setVisible(true);
 	}
 
 }

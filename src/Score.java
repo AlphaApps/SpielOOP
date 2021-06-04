@@ -10,11 +10,11 @@ public class Score {
     }
 
     public String getSpielername() {
-        return Spielername;
+        return this.Spielername;
     }
 
     public int getSekunden() {
-        return sekunden;
+        return this.sekunden;
     }
 
 }

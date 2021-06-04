@@ -16,7 +16,7 @@ public class MineTimer extends JLabel implements ActionListener{
 		this.timer = null;	
 		this.timer = new Timer(1000, this);
 		this.start();
-		this.counter = 0;
+		counter = 0;
 	}
 
 	public static MineTimer getInstance()
@@ -41,15 +41,21 @@ public class MineTimer extends JLabel implements ActionListener{
 
 	private void start()
 	{
-		this.counter = 0;
+		counter = 0;
 		this.timer.start();
 	}
 
 	private void updateTime()
 	{
-		this.setText("Zeit : " + this.counter);
-		this.counter++;	
+		this.setText("Zeit : " + counter);
+		counter++;	
 	}
+	
+	public int getTime()
+	{
+		return counter;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
